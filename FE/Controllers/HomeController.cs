@@ -22,7 +22,6 @@ namespace FE.Controllers
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileSystemGlobbing.Internal.Patterns;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,11 @@ namespace FE
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-        }
+			services.AddRazorPages();
+			services.AddHttpClient();
+            services.AddMvc();
+
+		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -31,7 +36,8 @@ namespace FE
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+
+			}
             else
             {
                 app.UseExceptionHandler("/Home/Error");
@@ -44,10 +50,12 @@ namespace FE
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-        }
+			});
+
+		}
     }
 }

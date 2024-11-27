@@ -1,5 +1,9 @@
 is_global = true
 build_property.RootNamespace = BE
+<<<<<<< HEAD
 build_property.ProjectDir = F:\12024\LTWNC\Websitebangiay\BE\
+=======
+build_property.ProjectDir = D:\124\C#\Mywebsite_Ban_giay\BE\
+>>>>>>> origin/vikhuong
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
